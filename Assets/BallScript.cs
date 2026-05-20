@@ -6,6 +6,7 @@ public class BallScript : MonoBehaviour
     public float limDirYneg = -0.9f;
     public float limDirYpos = 0.9f;
     private Rigidbody2D rb;
+    private GameManager gm;
 
     void Start()
     {
@@ -26,9 +27,19 @@ public class BallScript : MonoBehaviour
     {
         if (Mathf.Abs(transform.position.x) > 20f)
         {
-            transform.position = Vector2.zero;
-            Launch();
+            if (transform.position.x > 11f)
+            {
+
+                gm.ScoreLeft();
+
+            }
         }
+        else
+        {
+            gm.ScoreRight();
+        }
+        transform.position = Vector2.zero;
+        Launch();
     }
 
 }
