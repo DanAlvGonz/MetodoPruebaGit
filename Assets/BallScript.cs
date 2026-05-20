@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Ball : MonoBehaviour
+public class BallScript : MonoBehaviour
 {
     public float speed = 10f;
     public float limDirYneg = -0.9f;
