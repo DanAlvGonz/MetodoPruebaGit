@@ -7,9 +7,13 @@ public class BallScript : MonoBehaviour
     public float limDirYpos = 0.9f;
     private Rigidbody2D rb;
     private GameManager gm;
+    public AudioClip hitSound;
+    private AudioSource audioSource;
 
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
+
         rb = GetComponent<Rigidbody2D>();
         Launch();
     }
@@ -43,6 +47,15 @@ public class BallScript : MonoBehaviour
                 transform.position = Vector2.zero;
             Launch();
         }
+
+        void OnCollisionEnter2D(Collision2D collision)
+        {
+            if (collision.gameObject.CompareTag("Paddle"))
+            {
+                audioSource.PlayOneShot(hitSound);
+            }
+        }
+
     }
 
 }
