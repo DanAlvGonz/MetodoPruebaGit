@@ -22,7 +22,7 @@ public class Ball : MonoBehaviour
 
     void Update()
     {
-        if (Mathf.Abs(transform.position.x) > 10f)
+        if (Mathf.Abs(transform.position.x) > 20f)
         {
             transform.position = Vector2.zero;
             Launch();
